@@ -1,0 +1,71 @@
+### 1. Register a new user
+POST http://localhost:3005/register
+Content-Type: application/json
+
+{
+  "email": "shopkeeper@example.com",
+  "password": "securepassword"
+}
+
+### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+
+### 2. Login as a user (get JWT token) 
+
+POST http://localhost:3005/login
+Content-Type: application/json
+
+{
+  "email": "shopkeeper@example.com",
+  "password": "securepassword"
+}
+
+###
+
+### 3. Add a new customer
+POST http://localhost:3005/customers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+
+{
+  "name": "Virat Kohli",
+  "phone": "64765675992",
+  "address": "4th Cross Road, Delhi",
+  "trustScore": 9,
+  "creditLimit": 15000
+}
+
+###
+
+### 4. Create a new loan (credit sale)
+POST http://localhost:3005/loans
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+
+{
+  "customerId": "681700b584ef5eee01539fe7",
+  "itemDescription": "Electronics",
+  "loanAmount": 7000,
+  "dueDate": "2025-05-04",
+  "frequency": "monthly",
+  "interestRate": 2,
+  "graceDays": 3
+}
+
+###
+
+### 5. Record a repayment
+POST http://localhost:3005/repayments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+
+{
+  "loanId": "681700c084ef5eee01539fe8",
+  "repaymentAmount": 3000
+}
+
+###
+
+
+### 6. Get Loan Summary for Logged-in Shopkeeper
+GET http://localhost:3005/summary
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
