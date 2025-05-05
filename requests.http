@@ -3,8 +3,8 @@ POST http://localhost:3005/register
 Content-Type: application/json
 
 {
-  "email": "shopkeeper@example.com",
-  "password": "securepassword"
+  "email": "shopkeeper@example2.com",
+  "password": "securepassword2"
 }
 
 ### eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
@@ -15,8 +15,8 @@ POST http://localhost:3005/login
 Content-Type: application/json
 
 {
-  "email": "shopkeeper@example.com",
-  "password": "securepassword"
+  "email": "shopkeeper@example2.com",
+  "password": "securepassword2"
 }
 
 ###
@@ -24,11 +24,11 @@ Content-Type: application/json
 ### 3. Add a new customer
 POST http://localhost:3005/customers
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4NDQ5MjViMTU2NTA2MzkxMGFkMjciLCJpYXQiOjE3NDY0MjA4OTEsImV4cCI6MTc0NjQyNDQ5MX0.FVoAg-PqMChx5h6POZXGsxPr-6jYqCnsvc3AEC3b8FI
 
 {
-  "name": "Virat Kohli",
-  "phone": "64765675992",
+  "name": "Rohit",
+  "phone": "90365675992",
   "address": "4th Cross Road, Delhi",
   "trustScore": 9,
   "creditLimit": 15000
@@ -39,13 +39,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2Z
 ### 4. Create a new loan (credit sale)
 POST http://localhost:3005/loans
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4NDM0ODhmOWE1Mjk4OGJmMThjOTUiLCJpYXQiOjE3NDY0MjA1NjEsImV4cCI6MTc0NjQyNDE2MX0.bH6Mh6xJsaXkPbQvOPa9l6WCbckaWVgn31LKA5-3XXo
 
 {
-  "customerId": "681700b584ef5eee01539fe7",
-  "itemDescription": "Electronics",
-  "loanAmount": 7000,
-  "dueDate": "2025-05-04",
+  "customerId": "681844e35b1565063910ad28",
+  "itemDescription": "Groceries",
+  "loanAmount": 3000,
+  "dueDate": "2025-05-09",
   "frequency": "monthly",
   "interestRate": 2,
   "graceDays": 3
@@ -56,10 +56,10 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2Z
 ### 5. Record a repayment
 POST http://localhost:3005/repayments
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4NDM0ODhmOWE1Mjk4OGJmMThjOTUiLCJpYXQiOjE3NDY0MjA1NjEsImV4cCI6MTc0NjQyNDE2MX0.bH6Mh6xJsaXkPbQvOPa9l6WCbckaWVgn31LKA5-3XXo
 
 {
-  "loanId": "681700c084ef5eee01539fe8",
+  "loanId": "681845025b1565063910ad29",
   "repaymentAmount": 3000
 }
 
@@ -68,4 +68,9 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2Z
 
 ### 6. Get Loan Summary for Logged-in Shopkeeper
 GET http://localhost:3005/summary
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE2ZmRjZWM0Mjc3OGZiNTRhNzMyYmYiLCJpYXQiOjE3NDYzMzc0MjQsImV4cCI6MTc0NjM0MTAyNH0.k7mjp0-GeGiC6R2NjRNGSVrMutZuwt_cGhbtrBz8Vaw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4NDM0ODhmOWE1Mjk4OGJmMThjOTUiLCJpYXQiOjE3NDY0MjA1NjEsImV4cCI6MTc0NjQyNDE2MX0.bH6Mh6xJsaXkPbQvOPa9l6WCbckaWVgn31LKA5-3XXo
+
+### Get Overdue Loans (Protected Route)
+
+GET http://localhost:3005/overdue
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODE4NDM0ODhmOWE1Mjk4OGJmMThjOTUiLCJpYXQiOjE3NDY0MjA1NjEsImV4cCI6MTc0NjQyNDE2MX0.bH6Mh6xJsaXkPbQvOPa9l6WCbckaWVgn31LKA5-3XXo
